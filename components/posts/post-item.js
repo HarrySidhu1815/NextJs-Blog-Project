@@ -19,7 +19,7 @@ export default function PostItem({post}) {
     <li className={classes.post}>
       <Link href={linkPath}>
         <div className={classes.image}>
-            <Image src={`/images/posts/${post.slug}/${image.url}`} alt={title} width={300} height={200} layout='responsive'/>
+            <Image src={imagePath} alt={title} width={300} height={200} layout='responsive'/>
         </div>
         <div className={classes.content}>
             <h3>{title}</h3>
