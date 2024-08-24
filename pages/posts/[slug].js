@@ -1,10 +1,17 @@
 import React from 'react'
 import PostContent from '../../components/posts/post-detail/post-content'
 import { getAllFileNames, getPostData } from '../../lib/post-util'
+import Head from 'next/head'
 
 export default function PostDetailPage({postData}) {
   return (
+    <>
+    <Head>
+        <title>{postData.title}</title>
+        <meta name='description' content={postData.excerpt} />
+    </Head>
     <PostContent post={postData}/>
+    </>
   )
 }
 
