@@ -24,10 +24,9 @@ export default async function handler(req, res) {
 
     let client
 
+    const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@events.ta9v3.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority&appName=Events`
     try {
-      client = await MongoClient.connect(
-        "mongodb+srv://harjobanpreet15:ckoQ2CKIA7PgnMOt@events.ta9v3.mongodb.net/messages?retryWrites=true&w=majority&appName=Events"
-      );
+      client = await MongoClient.connect(connectionString);
     } catch (error) {
         res.status(500).json({message: 'Could not connect to database'})
         return
@@ -45,7 +44,7 @@ export default async function handler(req, res) {
     }
 
     client.close()
-    
+
     res
       .status(201)
       .json({
